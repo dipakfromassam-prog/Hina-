@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A little apology for Hina, with love from Dipak.">
+  <title>For Hina, with love</title>
+  <style>
+    :root {
+      --ink: #392934;
+      --muted: #806b76;
+      --rose: #e996a2;
+      --rose-dark: #ba6378;
+      --blush: #fff3f3;
+      --cream: #fffaf5;
+      --lavender: #f0e8f5;
+      --white: #fffdfc;
+      font-family: "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(1100px, calc(100% - 44px)); margin: auto; }
+    header { position: absolute; z-index: 3; top: 0; left: 0; right: 0; padding: 24px 0; }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .nav-links { display: flex; gap: 22px; }
+    .brand { color: var(--rose-dark); font-family: Georgia, serif; font-size: 1.35rem; font-style: italic; }
+    .brand span { color: var(--ink); }
+    .nav-link { color: var(--muted); font-size: .85rem; }
+    .nav-link:hover { color: var(--rose-dark); }
+
+    .hero { min-height: 790px; position: relative; display: grid; place-items: center; overflow: hidden; background: var(--blush); }
+    .hero::before, .hero::after { content: "♡"; position: absolute; color: rgba(233,150,162,.38); font-family: Georgia, serif; font-size: 9rem; }
+    .hero::before { left: 8%; top: 20%; transform: rotate(-16deg); }
+    .hero::after { right: 8%; bottom: 13%; font-size: 6rem; transform: rotate(18deg); }
+    .hero-inner { position: relative; z-index: 1; width: min(1100px, calc(100% - 44px)); padding: 110px 0 70px; pointer-events: none; }
+    .hero-copy-block { max-width: 570px; text-align: left; pointer-events: auto; }
+    .tiny { color: var(--rose-dark); font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    h1, h2 { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.065em; }
+    h1 { max-width: 540px; margin: 20px 0; font-size: clamp(3.8rem, 7vw, 6.3rem); line-height: .88; }
+    h1 em, h2 em { color: var(--rose-dark); }
+    .hero-copy { max-width: 440px; margin: 0; color: var(--muted); font-size: 1.1rem; }
+    .heart-button, .soft-button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border: 0; border-radius: 999px; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; }
+    .heart-button { margin-top: 30px; padding: 15px 25px; background: var(--rose-dark); color: white; box-shadow: 0 10px 22px rgba(186,99,120,.22); }
+    .heart-button:hover, .soft-button:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(186,99,120,.22); }
+    .hero-heart { display: block; margin-top: 30px; color: var(--rose); font-size: 2rem; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 50% { transform: scale(1.16); } }
+    .photo-floats { position: absolute; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; }
+    .photo-link { position: absolute; display: block; width: clamp(72px, 9vw, 116px); aspect-ratio: 4 / 5; overflow: hidden; border: 5px solid rgba(255,255,255,.94); background: var(--white); box-shadow: 0 9px 24px rgba(75,46,62,.16); pointer-events: auto; animation: photo-drift 5s ease-in-out infinite; }
+    .photo-link img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .photo-link:hover img { transform: scale(1.08); }
+    .photo-link:nth-child(4n + 1) { border-radius: 48% 48% 22px 22px; }
+    .photo-link:nth-child(4n + 2) { border-radius: 22px 48% 22px 48%; animation-delay: -.8s; }
+    .photo-link:nth-child(4n + 3) { border-radius: 48%; animation-delay: -1.6s; }
+    .photo-link:nth-child(4n) { border-radius: 48% 22px 48% 22px; animation-delay: -2.4s; }
+    @keyframes photo-drift { 50% { translate: 0 -9px; } }
+    .hero .photo-link:nth-child(1) { left: 55%; top: 17%; rotate: -9deg; }
+    .hero .photo-link:nth-child(2) { right: 7%; top: 19%; rotate: 8deg; }
+    .hero .photo-link:nth-child(3) { left: 59%; bottom: 16%; rotate: 7deg; }
+    .hero .photo-link:nth-child(4) { right: 7%; bottom: 9%; rotate: -8deg; }
+
+    section { padding: 100px 0; }
+    .letter, .reasons, .moment, .final { position: relative; }
+    section > .wrap { position: relative; z-index: 1; }
+    .letter .photo-link, .reasons .photo-link, .moment .photo-link { width: clamp(58px, 5.5vw, 72px); }
+    .letter { background: var(--white); }
+    .letter .photo-link:nth-child(1) { left: 0; top: 6px; rotate: -9deg; }
+    .letter .photo-link:nth-child(2) { right: 1%; bottom: 10%; rotate: 8deg; }
+    .letter-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: center; }
+    .section-label { color: var(--rose-dark); font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { margin: 15px 0 22px; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; }
+    .letter p { margin: 0 0 18px; color: var(--muted); font-size: 1.06rem; }
+    .letter-card { position: relative; padding: 44px 42px; background: var(--cream); box-shadow: 0 18px 50px rgba(75,46,62,.07); transform: rotate(2deg); }
+    .letter-card::before { content: "♥"; position: absolute; top: 17px; right: 23px; color: var(--rose); font-size: 1.35rem; }
+    .letter-card p { color: var(--ink); font-family: Georgia, serif; font-size: 1.14rem; line-height: 1.8; }
+    .signature { margin-top: 22px; color: var(--rose-dark); font-family: Georgia, serif; font-size: 1.6rem; font-style: italic; }
+
+    .reasons { background: var(--lavender); text-align: center; }
+    .reasons .photo-link:nth-child(1) { left: 0; top: 6px; rotate: 9deg; }
+    .reasons .photo-link:nth-child(2) { right: 1%; bottom: 8%; rotate: -8deg; }
+    .reasons > .wrap > p { max-width: 480px; margin: 0 auto; color: var(--muted); }
+    .reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 45px; text-align: left; }
+    .reason { min-height: 205px; padding: 27px; background: rgba(255,255,255,.65); border-radius: 22px; }
+    .reason-icon { color: var(--rose-dark); font-size: 1.65rem; }
+    .reason h3 { margin: 19px 0 7px; font-family: Georgia, serif; font-size: 1.3rem; font-weight: 400; }
+    .reason p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .moment { background: var(--cream); text-align: center; }
+    .moment .photo-link:nth-child(1) { left: 0; top: 4px; rotate: -9deg; }
+    .moment p { color: var(--muted); }
+    .choices { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .soft-button { position: relative; padding: 13px 20px; background: var(--white); color: var(--ink); border: 1px solid #efd8dc; }
+    .soft-button:hover { background: var(--blush); }
+    .soft-button.selected { border-color: var(--rose-dark); background: var(--blush); }
+    .reaction { position: absolute; z-index: 1; bottom: 80%; left: 50%; pointer-events: none; font-size: 1.2rem; animation: float-up .9s ease-out forwards; }
+    .reaction-one { --drift: -28px; }
+    .reaction-two { --drift: 0px; animation-delay: .07s; }
+    .reaction-three { --drift: 28px; animation-delay: .13s; }
+    @keyframes float-up {
+      0% { opacity: 0; transform: translate(-50%, 8px) scale(.6); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--drift)), -55px) scale(1.15); }
+    }
+    #choiceMessage { min-height: 27px; margin-top: 24px; color: var(--rose-dark); font-family: Georgia, serif; font-size: 1.25rem; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
+    .final { padding: 115px 0; background: linear-gradient(135deg, #e996a2, #d98194); color: white; text-align: center; }
+    .final .photo-link:nth-child(1) { right: 5%; top: 4px; width: clamp(58px, 6vw, 78px); rotate: 9deg; }
+    .final .section-label { color: rgba(255,255,255,.8); }
+    .final h2 { max-width: 650px; margin: 17px auto; }
+    .final p { margin: 0 auto 27px; color: rgba(255,255,255,.82); }
+    .final .heart-button { background: white; color: var(--rose-dark); }
+    footer { padding: 24px 0; color: var(--muted); background: var(--white); font-size: .8rem; text-align: center; }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 34px, 560px); }
+      .hero { min-height: 0; }
+      .hero::before { left: -8%; top: 17%; }
+      .hero::after { right: -5%; bottom: 10%; }
+      .hero-inner { padding: 125px 0 105px; }
+      .hero-copy-block { max-width: 570px; margin: auto; text-align: center; }
+      h1 { margin: 20px auto; font-size: clamp(3.7rem, 15vw, 6rem); }
+      .hero-copy { margin: 0 auto; }
+      .hero-heart { margin: 24px auto 0; }
+      .photo-link { width: 58px; border-width: 3px; }
+      .hero .photo-link:nth-child(1) { left: 5%; top: 6%; }
+      .hero .photo-link:nth-child(2) { right: 5%; top: 6%; }
+      .hero .photo-link:nth-child(3) { left: 9%; bottom: 3%; }
+      .hero .photo-link:nth-child(4) { right: 9%; bottom: 3%; }
+      .letter .photo-link:nth-child(1), .reasons .photo-link:nth-child(1) { left: 5%; top: 8px; }
+      .letter .photo-link:nth-child(2), .reasons .photo-link:nth-child(2) { right: 5%; bottom: 8px; }
+      .moment .photo-link:nth-child(1) { left: 5%; top: 4px; }
+      .final .photo-link:nth-child(1) { right: 5%; top: 2px; }
+      .letter-grid { grid-template-columns: 1fr; gap: 38px; }
+      .letter-card { transform: rotate(0); padding: 30px 25px; }
+      .reason-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; }
+      section { padding: 75px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap nav" aria-label="Page navigation">
+      <a class="brand" href="#top">for <span>Hina</span> ♡</a>
+      <div class="nav-links">
+        <a class="nav-link" href="#letter">A little note ↓</a>
+        <a class="nav-link" href="#gallery">Photos ↓</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy-block">
+          <div class="tiny">a little note from me</div>
+          <h1>Hina, you are<br><em>my favourite</em> person.</h1>
+          <p class="hero-copy">I’m sorry I’ve been unavailable when you called. You deserved more of my time.</p>
+          <a class="heart-button" href="#letter">Read my note <span>♡</span></a>
+          <span class="hero-heart">♥</span>
+        </div>
+      </div>
+      <div class="photo-floats" id="gallery" aria-label="Our photo memories">
+        <a class="photo-link" href="photo/1790764418752.jpg" aria-label="Open photo memory 1"><img src="photo/1790764418752.jpg" alt="A photo from our memories, 1" decoding="async"></a>
+        <a class="photo-link" href="photo/1790764418767.jpg" aria-label="Open photo memory 2"><img src="photo/1790764418767.jpg" alt="A photo from our memories, 2" decoding="async"></a>
+        <a class="photo-link" href="photo/1790764418791.jpg" aria-label="Open photo memory 3"><img src="photo/1790764418791.jpg" alt="A photo from our memories, 3" decoding="async"></a>
+        <a class="photo-link" href="photo/1790764418820.jpg" aria-label="Open photo memory 4"><img src="photo/1790764418820.jpg" alt="A photo from our memories, 4" decoding="async"></a>
+      </div>
+    </section>
+
+    <section class="letter" id="letter">
+      <div class="photo-floats" aria-label="More photo memories">
+        <a class="photo-link" href="photo/1790764418848.jpg" aria-label="Open photo memory 5"><img src="photo/1790764418848.jpg" alt="A photo from our memories, 5" loading="lazy" decoding="async"></a>
+        <a class="photo-link" href="photo/1790764418871.jpg" aria-label="Open photo memory 6"><img src="photo/1790764418871.jpg" alt="A photo from our memories, 6" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="wrap letter-grid">
+        <div>
+          <div class="section-label">Dipak ki taraf se</div>
+          <h2>Main busy raha.<br><em>Yeh tumhari galti nahi.</em></h2>
+          <p>Tumhara bura lagna samajh aata hai. Main apna waqt behtar sambhalunga.</p>
+        </div>
+        <div class="letter-card">
+          <p>Hina,<br><br>
+          Tumhari calls mere liye important hain. Busy hoon toh pehle bataunga—and khud call back karunga. I’m sorry. Main behtar karunga.</p>
+          <div class="signature">Dil se sorry, Dipak</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reasons">
+      <div class="photo-floats" aria-label="More photo memories">
+        <a class="photo-link" href="photo/1790764418896.png" aria-label="Open photo memory 7"><img src="photo/1790764418896.png" alt="A photo from our memories, 7" loading="lazy" decoding="async"></a>
+        <a class="photo-link" href="photo/1790764418922.jpg" aria-label="Open photo memory 8"><img src="photo/1790764418922.jpg" alt="A photo from our memories, 8" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="wrap">
+        <div class="section-label">Things I never want you to forget</div>
+        <h2>Why you are <em>irreplaceable.</em></h2>
+        <p>Even when I am being an idiot, these things stay completely true.</p>
+        <div class="reason-grid">
+          <article class="reason"><div class="reason-icon">✦</div><h3>Your beautiful heart</h3><p>You care so deeply, and the world is softer and better because you do.</p></article>
+          <article class="reason"><div class="reason-icon">☀</div><h3>Your way of lighting up a room</h3><p>Your laugh is one of my favourite sounds, even when I pretend it is not.</p></article>
+          <article class="reason"><div class="reason-icon">∞</div><h3>The way you are you</h3><p>There is only one Hina. I never want to take that incredible person for granted.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="moment">
+      <div class="photo-floats" aria-label="More photo memories">
+        <a class="photo-link" href="photo/1790764418950.jpg" aria-label="Open photo memory 9"><img src="photo/1790764418950.jpg" alt="A photo from our memories, 9" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="wrap">
+        <div class="section-label">When you are ready</div>
+        <h2>Can I make it up to you?</h2>
+        <p>Choose our next little moment. I promise to bring my best behaviour.</p>
+        <div class="choices">
+          <button class="soft-button" data-message="A quiet dinner, your favourite food, and no phones.">Dinner together 🍝</button>
+          <button class="soft-button" data-message="A long walk, honest conversation, and your hand in mine.">A long walk 🌙</button>
+          <button class="soft-button" data-message="You pick the film; I’ll bring snacks and my attention.">Movie night 🎬</button>
+        </div>
+        <div id="choiceMessage" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="photo-floats" aria-label="More photo memories">
+        <a class="photo-link" href="photo/1790764418973.jpg" aria-label="Open photo memory 10"><img src="photo/1790764418973.jpg" alt="A photo from our memories, 10" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="wrap">
+        <div class="section-label">One last thing</div>
+        <h2>Hina, mujhe maaf karna.<br><em>Main behtar karunga.</em></h2>
+        <p>I’ll make more time for you—and call back when I can’t talk.</p>
+        <a class="heart-button" href="tel:+917002763637">Call me when you're ready <span>♡</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Made with love (and a sincere apology) by Dipak for Hina ♡</footer>
+  <script>
+    document.querySelectorAll('[data-message]').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('[data-message]').forEach((choice) => {
+          choice.classList.toggle('selected', choice === button);
+        });
+        document.querySelector('#choiceMessage').textContent = button.dataset.message;
+        ['❤️', '✨', '💗'].forEach((reaction, index) => {
+          const burst = document.createElement('span');
+          burst.className = `reaction reaction-${['one', 'two', 'three'][index]}`;
+          burst.setAttribute('aria-hidden', 'true');
+          burst.textContent = reaction;
+          button.append(burst);
+          burst.addEventListener('animationend', () => burst.remove(), { once: true });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
